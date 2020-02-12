@@ -15,12 +15,6 @@ var creepSpawner = {
                 console.log('Clearing non-existing creep memory:', name);
             }
         }
-    
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    
-        if(harvesters.length < 2) {
-            Game.spawns['Stryn'].spawnCreep([WORK,CARRY,MOVE], newName('harvester'), {memory: {role: 'harvester'}});
-        }
         
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         
@@ -32,6 +26,12 @@ var creepSpawner = {
         
         if(upgraders.length < 1) {
             Game.spawns['Stryn'].spawnCreep([WORK,CARRY,MOVE], newName('upgrader'), {memory: {role: 'upgrader'}});
+        }
+        
+        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    
+        if(harvesters.length < 2) {
+            Game.spawns['Stryn'].spawnCreep([WORK,CARRY,MOVE], newName('harvester'), {memory: {role: 'harvester'}});
         }
         
         function newName(name) {
