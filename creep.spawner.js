@@ -21,9 +21,13 @@ var creepSpawner = {
     );
 
     if (builders.length < 1) {
-      Game.spawns["Stryn"].spawnCreep([WORK, CARRY, MOVE], newName("builder"), {
-        memory: { role: "builder" }
-      });
+      Game.spawns["Stryn"].spawnCreep(
+        [WORK, WORK, CARRY, MOVE, MOVE],
+        newName("builder"),
+        {
+          memory: { role: "builder" }
+        }
+      );
     }
 
     var upgraders = _.filter(
